@@ -1,6 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 export default function Header() {
-    const navLinks= ['Dashboard','Watchlist','Portfolio']
+    const navLinks= [{text:'Dashboard',path : '/Dashboard'},
+                     {text:'Watchlist',path : '/Watchlist'},
+                     {text:'Portfolio',path : '/Portfolio'}
+    ]
     return (
       <header className="w-full bg-white shadow-md px-6 py-4 flex items-center justify-between">
   
@@ -12,8 +16,8 @@ export default function Header() {
             <h1 className="text-xl font-bold text-blue-600">StockTrackerPro</h1>
           </div>
           <nav className="hidden md:flex space-x-6">
-           { navLinks.map((LinkText)=>{
-                return <a href="#" className="text-gray-700 hover:text-blue-600">{LinkText}</a>
+           { navLinks.map((link)=>{
+                return <Link href={link.path} className="text-gray-700 hover:text-blue-600">{link.text}</Link>
             }) }   
           </nav>
         </div>
